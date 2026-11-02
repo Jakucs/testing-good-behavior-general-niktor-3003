@@ -1,0 +1,125 @@
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 32px;
+  margin-bottom: 0;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.navbar-side-left {
+  justify-content: flex-start;
+}
+
+.navbar-side-right {
+  justify-content: flex-end;
+}
+
+.navbar-title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: -0.02em;
+}
+
+.navbar-back-button,
+.navbar-fight-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-back-button {
+  background-color: var(--red);
+}
+
+.navbar-fight-button {
+  background-color: #2e7d32;
+}
+
+.navbar-back-button:hover {
+  background-color: var(--red-dark);
+}
+
+.navbar-fight-button:hover {
+  background-color: #1b5e20;
+}
+
+.navbar-back-button:hover,
+.navbar-fight-button:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-back-button:focus-visible,
+.navbar-fight-button:focus-visible {
+  outline: 2px solid var(--red-dark);
+  outline-offset: 2px;
+}
+
+.navbar-fight-button:focus-visible {
+  outline-color: #1b5e20;
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 680px;
+  margin: 20px auto;
+  padding: 14px 20px;
+  background: #fff5f5;
+  border: 1.5px solid var(--red);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.error-banner__icon {
+  font-size: 1.1rem;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.error-banner__text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--red-dark);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-items: center;
+    padding: 16px;
+  }
+
+  .navbar-side {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar-side-right {
+    justify-content: flex-end;
+  }
+}
+

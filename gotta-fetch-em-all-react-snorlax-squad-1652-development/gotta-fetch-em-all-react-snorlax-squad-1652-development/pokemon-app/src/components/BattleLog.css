@@ -1,0 +1,65 @@
+/* === BATTLE LOG === */
+.battle-log {
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.battle-log__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.battle-log__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.battle-log__title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-h);
+  text-transform: uppercase;
+}
+
+.battle-log__entries {
+  padding: 14px 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #f8f8fc;
+}
+
+.battle-log__entry {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.55;
+  padding: 3px 0;
+}
+
+.battle-log__entry:last-child {
+  color: var(--text-h);
+  font-weight: 700;
+}
+
+.battle-log__entries::-webkit-scrollbar {
+  width: 4px;
+}
+
+.battle-log__entries::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}

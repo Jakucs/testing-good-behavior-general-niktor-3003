@@ -1,0 +1,85 @@
+/* === WINNER SCREEN === */
+.winner-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.winner-pokemon-showcase {
+  width: 100%;
+  background: linear-gradient(135deg, #3b5bdb 0%, #1c3faa 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.winner-pokemon-showcase::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0.12) 0%, transparent 65%);
+}
+
+.winner-pokemon-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+}
+
+.winner-details {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 24px 28px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winner-pokemon-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-h);
+  text-transform: capitalize;
+  letter-spacing: -0.01em;
+}
+
+.winner-subtitle {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.winner-back-button {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.15s ease, transform 0.12s ease;
+  margin-top: 6px;
+}
+
+.winner-back-button:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}

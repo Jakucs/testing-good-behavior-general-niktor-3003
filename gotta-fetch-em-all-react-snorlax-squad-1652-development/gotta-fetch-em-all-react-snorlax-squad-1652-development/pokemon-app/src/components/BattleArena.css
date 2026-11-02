@@ -1,0 +1,178 @@
+/* === BATTLE ARENA === */
+.battle-arena {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Active battle field */
+.battle-field {
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  padding: 32px 40px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Pokemon sides */
+.battle-pokemon-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pokemon-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.pokemon-frame img {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+}
+
+.pokemon-battle-info {
+  width: 100%;
+}
+
+/* Name badges */
+.pokemon-name-badge {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.player-badge {
+  background: #f5c800;
+  color: #1a1a2e;
+}
+
+.enemy-badge {
+  background: var(--red);
+  color: #fff;
+}
+
+/* HP bars */
+.hp-section {
+  width: 100%;
+}
+
+.hp-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.hp-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hp-numbers {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.hp-bar-track {
+  height: 10px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.hp-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+.player-hp {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.enemy-hp {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+/* VS badge */
+.battle-vs-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(227, 53, 13, 0.45);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* Winner result wrapper */
+.battle-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.battle-result-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.result-victory {
+  color: #1a73e8;
+}
+
+.result-defeat {
+  color: var(--red);
+}
+
+@media (max-width: 640px) {
+  .battle-field {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .battle-vs-badge {
+    margin: 0 auto;
+  }
+
+  .pokemon-frame {
+    width: 160px;
+    height: 160px;
+  }
+}
