@@ -33,7 +33,7 @@ public class PokemonPage extends BasePage{
     }
 
     public boolean isFightDisplayed() {
-        // Ide kerül majd a harci felület ellenőrzése.
+        
         return false;
     }
 }

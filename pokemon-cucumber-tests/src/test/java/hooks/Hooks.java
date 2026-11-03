@@ -11,13 +11,11 @@ import java.time.Duration;
 public class Hooks {
 
     public static WebDriver driver;
-    public static WebDriverWait wait;
 
     @Before
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("http://localhost:5173/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @After
