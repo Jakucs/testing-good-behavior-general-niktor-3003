@@ -15,6 +15,7 @@ import static hooks.Hooks.driver;
 public class PokemonSteps {
 
     private PokemonPage pokemonPage;
+    private String defeatedPokemon;
 
     @Given("the user opens the Pokemon application")
     public void userOpensPokemonApplication() {
@@ -31,6 +32,7 @@ public class PokemonSteps {
 
     @When("the user starts a Pokemon fight")
     public void userStartsPokemonFight() {
+        //defeatedPokemon = pokemonPage.getOpponentPokemonName();
         pokemonPage.startPokemonFight();
     }
 
@@ -41,4 +43,23 @@ public class PokemonSteps {
                 "Pokemon fight was not displayed!"
         );
     }
+
+    @When("the user wins the Pokemon fight")
+    public void userWinsPokemonFight() {
+        pokemonPage.winPokemonFight();
+    }
+
+    @Then("the Pokemon should be added to the user's collection")
+    public void pokemonShouldBeAddedToCollection() {
+        pokemonPage.openMyPokemon();
+
+        defeatedPokemon = pokemonPage.getOpponentPokemonName();
+
+        Assertions.assertTrue(
+                pokemonPage.isPokemonAddedToCollection(defeatedPokemon),
+                "The defeated Pokemon was not added to the collection!"
+        );
+    }
+
+
 }
