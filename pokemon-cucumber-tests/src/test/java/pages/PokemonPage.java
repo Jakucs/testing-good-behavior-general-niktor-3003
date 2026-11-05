@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PokemonPage extends BasePage{
@@ -32,11 +30,23 @@ public class PokemonPage extends BasePage{
     private By continueJourneyButton =
             By.className("winner-back-button");
 
+    private By locations = By.className("loc-card");
+
+    private By pokemonSprite = By.className("pokemon-card__image");
+
+    private By pokemonName = By.className("pokemon-card__name");
+
     public void startPokemonFight() {
         click(eternaCityButton);
         click(eternaWestGateButton);
         click(charizardChoose);
         click(startFightButton);
+    }
+
+    public boolean isStartFightButtonDisplayed() {
+        return driver.findElements(startFightButton)
+                .stream()
+                .anyMatch(WebElement::isDisplayed);
     }
 
     public boolean isHomepageDisplayed() {
@@ -57,18 +67,57 @@ public class PokemonPage extends BasePage{
         click(eternaWestGateButton);
     }
 
+    public void continueJourneyButtonClick(){
+        click(continueJourneyButton);
+    }
+
     public String getOpponentPokemonName() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(opponentPokemonName)).getText();
     }
 
     public boolean isPokemonAddedToCollection(String pokemonName) {
-        By locator = By.xpath("//h2[@class='pokemon-card__name'][translate(normalize-space(text()),"
-                + "'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')='"
-                + pokemonName.trim().toUpperCase() + "']");
+        By locator = By.xpath(
+                "//h2[@class='pokemon-card__name'][normalize-space(text())='"
+                        + pokemonName.trim().toUpperCase() + "']"
+        );
+
         try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+            return wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(locator)
+            ).isDisplayed();
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public int getLocationsCount() {
+        wait.until(driver ->
+                driver.findElements(locations).size() == 20
+        );
+
+        return driver.findElements(locations).size();
+    }
+
+    public boolean isPokemonSpriteDisplayed() {
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(pokemonSprite)
+        ).isDisplayed();
+    }
+
+    public boolean isPokemonNameDisplayed() {
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(pokemonName)
+        ).isDisplayed();
+    }
+
+    public void selectLocationWithPokemon() {
+        click(eternaCityButton);
+        click(eternaWestGateButton);
+    }
+
+    public boolean areLocationsDisplayed(){
+        return driver.findElements(locations)
+                .stream()
+                .anyMatch(WebElement::isDisplayed);
     }
 }
